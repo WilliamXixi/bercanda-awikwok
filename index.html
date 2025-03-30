@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock Maxwin FIRSTPLAY88</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .header-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Mengubah warna teks menjadi merah dan menambahkan bayangan teks */
+        .header-info h2, .header-info h1, .header-info p {
+            margin: 0;
+            font-size: 18px;
+            color: #FF0000; /* Merah */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Bayangan teks untuk kontras yang lebih baik */
+        }
+
+        /* Mengubah warna teks h1 menjadi merah dengan bayangan yang lebih kuat */
+        .header-info h1 {
+            font-size: 32px;
+            color: #FF0000; /* Merah */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Bayangan teks lebih kuat */
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #8E44AD;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        p {
+            font-size: 16px;
+            color: #8E44AD;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        input[type="text"], select {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #444;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            width: 80%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #C0392B;
+        }
+
+        .lock-btn {
+            background-color: #00FF00;
+            position: relative;
+        }
+        .lock-btn:active {
+            background-color: #28B463;
+        }
+
+        .status, .countdown {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #00FF00;
+            display: none;
+        }
+
+        @keyframes lockAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+                background-color: #3926ea;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .locking {
+            animation: lockAnimation 1s ease-in-out;
+        }
+
+        /* Gaya untuk gambar gembok */
+        .lock-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Information -->
+    <div class="header-info">
+        <!-- Gambar Gembok -->
+        <img src="https://i.ibb.co/jfQgr7f/gembok.png" alt="Lock Icon" class="lock-icon">
+        <h2>ID LOCK</h2>
+        <h1>LOCK MAXWIN</h1>
+        <p>Kunci Akun & Naikan Winrate Maxwin</p>
+        <p>Khusus Slot Online v5.1.1 Premium</p>
+        <p id="datetime"></p>
+    </div>
+
+    <!-- Form Container -->
+    <div class="container">
+        <h1>LOCK MAXWIN COLOWIN</h1>
+        <p>Kunci Akun & Naikan Winrate Maxwin</p>
+        <form id="lock-form" action="" method="POST">
+            <label for="user-id" style="color: #8E44AD;">USER ID</label>
+            <input type="text" id="user-id" name="user-id" placeholder="Masukkan User ID" required>
+            <label for="provider" style="color: #8E44AD;"></label>
+            <select id="provider" name="provider" required>
+                <option value="scatter-hitam">SCATTER HITAM MAHJONG WAYS 3</option>
+                <option value="pragmatic-play">PRAGMATIC PLAY</option>
+                <option value="pg-soft">PG SOFT</option>
+                <option value="scatter-hitam-2">SCATTER HITAM MAHJONG WAYS 2</option>
+                <option value="gates-of-olympus">GATES OF OLYMPUS PRAGMATIC X1000</option>
+                <option value="starlight-princess">STARLIGHT PRINCESS PRAGMATIC X1000</option>
+                <option value="habanero">HABANERO</option>
+            </select>
+            
+            <button type="button" class="lock-btn" id="lock-btn" onclick="lockProcess()">LOCK</button>
+        </form>
+
+        <div class="status" id="status-message">
+            <p>Akun Anda berhasil di lock. Diharapkan untuk deposit dalam waktu 30 menit.</p>
+        </div>
+
+        <div class="countdown" id="countdown-timer">
+            <p>Waktu tersisa: <span id="time-left">30:00</span></p>
+        </div>
+
+        <!-- Tombol WhatsApp -->
+        <a href="https://wa.me/639101709982" target="_blank">
+            <button type="button" style="width: 80%; padding: 12px; margin-top: 20px; background-color: #25D366; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                Hubungi via WhatsApp
+            </button>
+        </a>
+    </div>
+
+    <script>
+        // Menampilkan tanggal dan waktu saat ini
+        const datetimeElement = document.getElementById('datetime');
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        datetimeElement.textContent = "Tanggal/Waktu: " + formattedDate;
+
+        function lockProcess() {
+            const lockButton = document.getElementById('lock-btn');
+            const statusMessage = document.getElementById('status-message');
+            const countdownTimer = document.getElementById('countdown-timer');
+            const timeLeftSpan = document.getElementById('time-left');
+
+            lockButton.classList.add('locking');
+            setTimeout(() => {
+                lockButton.classList.remove('locking');
+                statusMessage.style.display = 'block';
+                countdownTimer.style.display = 'block';
+
+                let timeLeft = 30 * 60;
+                const interval = setInterval(() => {
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
+                    if (seconds < 10) seconds = '0' + seconds;
+                    timeLeftSpan.textContent = `${minutes}:${seconds}`;
+                    timeLeft--;
+
+                    if (timeLeft < 0) {
+                        clearInterval(interval);
+                        timeLeftSpan.textContent = "Waktu Habis";
+                    }
+                }, 1000);
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
